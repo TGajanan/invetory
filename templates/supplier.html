@@ -1,0 +1,93 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="shortcut icon" href="#">
+
+</head>
+
+<body>
+
+<div class="top">
+    <p>INVENTORY MANAGEMENT SYSTEM</p>
+</div>
+
+<div class="nav">
+    <a href="{{ url_for('home') }}" style="color: #ffe89d;">Suppliers</a>
+    <a href="{{ url_for('inventory') }}">Inventory</a>
+    <a href="{{ url_for('checkout') }}">Checkout</a>
+    <a href="{{ url_for('transactions') }}">Transactions</a>
+    <a href="{{ url_for('home') }}" style="float: right;">Logout</a>
+</div>
+
+<br>
+<a href="{{url_for('addsup')}}" class="abtn">Add supplier</a>
+<br><br><br>
+
+<center>
+    <h1 style="font-size: 32px;">SUPPLIER DETAILS</H1>
+    <br>
+    
+    <div class="msg">
+    {{msg}}
+    </div>
+    <br>
+    
+    <table>
+        <tr>
+            <th>Supplier name</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tbody>
+            {% for row in data[1:] %}    
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                
+                <td>
+                    <a href="editsupplier/{{row[3]}}">
+                    <i class="fas fa-pen" style="font-size: 26px; color: slateblue;"></i>
+                    </a>
+                </td>
+                <td>
+                    <form method="POST" action="{{url_for('delsup', SUPID=row[3])}}" style="margin-top: 18px;">
+                        <button type="submit" style="background-color: white; border: none; cursor: pointer;">
+                        <i class="fas fa-trash-alt" style="font-size: 26px; color: red;"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+
+
+<div class="footer">
+<p style="text-align: center;">
+    <p style="float: left; padding-left: 50px;">---IMS---</p>
+	<p style="float: right; padding-right: 50px;">
+	&copy 
+    <script>
+        document.write(new Date().getFullYear());
+	</script>
+	| All rights reserved
+</p>
+<br><br>
+</div>
+
+</body>
+
+</html>
+

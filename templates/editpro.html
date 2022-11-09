@@ -1,0 +1,137 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="shortcut icon" href="#">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #DAF7A6;
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 14px;
+}
+
+.top {
+    background-color: #252525;
+    text-align: center;
+    color: white;
+    font-family: 'Concert One', cursive;
+    margin: 0;
+    font-size: 30px;
+    padding: 1px;
+}
+
+.login {
+    margin: auto;
+    padding: 50px;
+    background-color: white;
+    margin-top: 50px;
+    width: 30%;
+    border-radius: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #DAF7A6;
+}
+
+.loginbtn {
+    padding: 10px;
+    background-color: #c1dd8a;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.loginbtn:hover {
+    background-color: #aeca78;
+    transform: scale(1.2);
+}
+
+.formerror {
+    color: red;
+    font-size: 12px;
+}
+
+.footer {
+	padding: 20px;
+	padding-top: 5px;
+	text-align: center;
+	background-color: #252525;
+	margin-top: 20%;
+	color: white;
+	font-size: 13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top">
+    <p>INVENTORY MANAGEMENT SYSTEM</p>
+</div>
+
+<form method="POST" action="{{url_for('editproduct',PROID=PROID)}}" class="login">
+    <h1 style="font-size: 35px;">Edit product</h1>
+    
+    <label>Product name</label><br>
+    <input type="text" name="name" value="{{a}}" required/>
+    <br><br>
+    <label>Quantity</label><br>
+    <input type="text" name="quantity" value="{{b}}" required/>
+    <br><br>
+    <label>Cost price</label><br>
+    <input type="text" name="cprice" value="{{c}}" required/>
+    <br><br>
+    <label>Profit</label><br>
+    <input type="text" name="profit" value="{{d}}" required/>
+    <br><br>
+    <label>Supplier</label><br>
+    <select name="supplier">
+        {% for s in sup1 %}
+        <option value="{{ s[0] }}">{{ s[0] }}</option>
+        {% endfor %}
+    </select>
+    <br><br><br>
+    
+    <center>
+    <button type="submit" value="Submit" class="loginbtn">Save</button>
+    </center>
+</form>
+
+<div class="footer">
+<p style="text-align: center;">
+    <p style="float: left; padding-left: 50px;">---IMS---</p>
+	<p style="float: right; padding-right: 50px;">
+	&copy 
+    <script>
+        document.write(new Date().getFullYear());
+	</script>
+	| All rights reserved
+</p>
+<br><br>
+</div>
+
+</body>
+
+</html>
+

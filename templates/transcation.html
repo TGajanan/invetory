@@ -1,0 +1,88 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="shortcut icon" href="#">
+
+</head>
+
+<body>
+
+<div class="top">
+    <p>INVENTORY MANAGEMENT SYSTEM</p>
+</div>
+
+<div class="nav">
+    <a href="{{ url_for('home') }}">Suppliers</a>
+    <a href="{{ url_for('inventory') }}">Inventory</a>
+    <a href="{{ url_for('checkout') }}">Checkout</a>
+    <a href="{{ url_for('transactions') }}"  style="color: #ffe89d;">Transactions</a>
+    <a href="{{ url_for('home') }}" style="float: right;">Logout</a>
+</div>
+
+<br>
+<div class="info1">Cash in: <span>&#8377;</span>{{cashin}}</div>
+<div class="info1">Cash out: <span>&#8377;</span>{{cashout}}</div>
+
+<a href="{{url_for('delete_all_transactions')}}" class="abtn">Delete all selling details</a>
+
+<br><br><br>
+
+
+
+<center>
+    <h1 style="font-size: 32px;">TRANSACTIONS</H1>
+    <br>
+    
+    <div class="msg">
+    {{msg}}
+    </div>
+    <br>
+</center>
+    
+    <div class="row">
+        <div class="centercolumn1">
+            
+            
+            <table style="width: 100%;">
+                <tr>
+                    <th>Customer name</th>
+                    <th>Product <i class="fas fa-minus"></i></th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                </tr>
+                <tbody>
+                    {% for row in data1 %}    
+                    <tr>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td><span>&#8377;</span>{{row[5]}}</td>
+        
+                        <td>
+                            <form method="post" action="{{url_for('delete_transaction', transid=row[0])}}" style="margin-top: 18px;">
+                                <button type="submit" style="background-color: white; border: none; cursor: pointer;">
+                                <i class="fas fa-trash-alt" style="font-size: 26px; color: red;"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    
+
+</body>
+
+</html>
+

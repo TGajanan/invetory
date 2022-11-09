@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'RocknRoll One', sans-serif;
+    font-size: 16px;
+}
+
+.top {
+    background-color: #7e7b7b;
+    text-align: center;
+    color: rgb(177, 132, 132);
+    font-family: 'Concert One', cursive;
+    margin: 0;
+    font-size: 30px;
+    padding: 1px;
+}
+
+.login {
+    margin: auto;
+    padding: 50px;
+    background-color: #b9b9b8;
+    margin-top: 50px;
+    width: 30%;
+    border-radius: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #DAF7A6;
+}
+
+.loginbtn {
+    padding: 10px;
+    background-color: #3b426b;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.loginbtn:hover {
+    background-color: #aeca78;
+    transform: scale(1.2);
+}
+
+.formerror {
+    color: red;
+    font-size: 20px;
+}
+
+.nav {
+    background-color: #252525;
+    border-top: 1px solid #ffe89d;
+    overflow: hidden;
+}
+
+.nav a {
+    text-decoration: none;
+    padding: 15px;
+    float: left;
+    color: #FFC300;
+}
+
+.nav a:hover {
+    color: #ffe89d;
+    transform: scale(1.1);
+}
+
+table {
+    background-color: #b9b9b8;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 90%;
+    border: 1px solid black;
+}
+
+td, th {
+    padding: 16px;
+    text-align: left;
+}
+
+th {
+    border-bottom: 1px solid black;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #ffeea6;
+}
+
+.msg {
+    font-size: 22px;
+    color: red;
+}
+
+.abtn {
+    background-color: rgb(78, 76, 76);
+    text-decoration: none;
+    padding: 20px;
+    color: rgb(138, 109, 109);
+    margin-left: 20px;
+    float: right;
+    border-radius: 5px;
+}
+
+.abtn:hover {
+    background-color: #FFC300 ;
+}
+
+.info {
+    background-color: white;
+    padding: 20px;
+    color: rgb(237, 232, 232);
+    margin-right: 20px;
+    float: right;
+    border-radius: 5px;
+    margin-top: 1px;
+}
+
+.info1 {
+    background-color: white;
+    padding: 20px;
+    color: rgb(246, 239, 239);
+    margin-right: 20px;
+    float: left;
+    border-radius: 5px;
+    margin-top: 1px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.leftcolumn {
+    width: 45%;
+    float: left;
+}
+
+.rightcolumn {
+    float: right;
+    width: 55%;
+    padding-left: 10px;
+}
+
+.leftcolumn1 {
+    width: 50%;
+    float: left;
+}
+
+.rightcolumn1 {
+    float: right;
+    width: 50%;
+    padding-left: 10px;
+}
+
+.card {
+    background-color: rgb(248, 244, 244);
+    padding: 10px;
+    box-shadow: 5px 5px 10px gray;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.checkoutbtn {
+    background-color: #6c3483;
+    padding: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin-right: 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    
+}
+
+.checkoutbtn:hover {
+    background-color: #5b2c6f;
+    transform: scale(1.2);
+}
+
+.footer {
+	padding: 20px;
+	padding-top: 5px;
+	text-align: center;
+	background-color: #252525;
+	margin-top: 20%;
+	color: white;
+	font-size: 13px;
+}
+

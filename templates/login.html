@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="shortcut icon" href="#">
+
+</head>
+
+<body>
+
+<div class="top">
+    <center>
+    <p>INVENTORY MANAGEMENT SYSTEM</p>
+    </center>
+</div>
+
+<div class="login">
+    <form action="/login" method="post">
+        <h2 style="text-align: center;">Login</h2>
+        <div class="formerror">
+            {{msg}}
+            <br><br>
+        </div>
+        <label>Username</label><br>
+        <input type="text" name="username" required></input>
+        <br><br><br>
+        <label>Password</label><br>
+        <input type="password" name="password" required></input>
+        <br><br><br>
+        <center>
+        <button type="submit" class="loginbtn">Login</button>
+        </center>
+    </form>
+</div>
+
+<div class="footer">
+<p style="text-align: center;">
+    <p style="float: left; padding-left: 50px;">---IMS---</p>
+	<p style="float: right; padding-right: 50px;">
+	&copy 
+    <script>
+        document.write(new Date().getFullYear());
+	</script>
+	| All rights reserved
+</p>
+<br><br>
+</div>
+
+</body>
+
+</html>
+

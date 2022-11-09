@@ -1,0 +1,160 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="shortcut icon" href="#">
+
+</head>
+
+<body>
+
+<div class="top">
+    <p>INVENTORY MANAGEMENT SYSTEM</p>
+</div>
+
+<div class="nav">
+    <a href="{{ url_for('home') }}">Suppliers</a>
+    <a href="{{ url_for('inventory') }}">Inventory</a>
+    <a href="{{ url_for('checkout') }}"  style="color: #ffe89d;">CART</a>
+    <a href="{{ url_for('transactions') }}">Transactions</a>
+    <a href="{{ url_for('home') }}" style="float: right;">Logout</a>
+</div>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            
+            <center>
+            <h1 style="font-size: 30px;">YOUR CART</H1>
+            
+            <div class="msg">
+            {{cartmsg}}
+            </div>
+            <br>
+    
+            <table style="width: 100%;">
+                <tr>
+                    <th>Customer name</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                </tr>
+                <tbody>
+                    {% for row in cartdata %}    
+                    <tr>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        <td><span>&#8377;</span>{{row[5]}}</td>
+                        
+                        <td>
+                        <form method="post" action="{{url_for('delete_cart_product', cartid=row[0])}}" style="margin-top: 18px;">
+                            <button type="submit" style="background-color: white; border: none; cursor: pointer;">
+                            <i class="fas fa-trash-alt" style="font-size: 26px; color: red;"></i>
+                            </button>
+                        </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </center>
+            
+            <br>
+            <div class="row">
+                <div class="leftcolumn">
+                    <p>No. of items in the cart: {{items}}</p>
+                    <p>Total cost: <span>&#8377;</span>{{sale}}</p>
+                    
+                    <form method="post" action='/tender', total=sale>
+                        <label>Paid:</label>
+                        <input type="text" name="tender" style="width: 40%; margin-bottom: 5px;" value="{{tend}}" required/>
+                        <button type="submit" style="background-color: white; border: none; cursor: pointer;">
+                        <i class="fas fa-sync" style="font-size: 30px; color: green;"></i>
+                        </button>
+                        <br>
+                        <label>Change:</label>
+                        <input type="text" name="change" value="{{ch}}" style="width:40%;" readonly/>
+                    </form>
+                </div>
+                
+                <div class="rightcolumn">
+                    <form method="post" action="/checkout" style="margin-top: 18px;">
+                        <button type="submit" class="checkoutbtn">Buy now</button>
+                    </form>
+                </div>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+    
+    <div class="rightcolumn">
+        <div class="card">
+            
+            <center>
+            <h1 style="font-size: 30px;">PRODUCTS</H1>
+            
+            <div class="msg">
+            {{prodmsg}}
+            </div>
+            <br>
+    
+            <table style="width: 100%;">
+                <tr>
+                    <th>Product name</th>
+                    <th>Quantity available</th>
+                    <th>Price per item</th>
+                    <th>Supplier</th>
+                    <th>Add to cart</th>
+                </tr>
+                <tbody>
+                    {% for row in proddata %}    
+                    <tr>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td><span>&#8377;</span>{{row[3]}}</td>
+                        <td>{{row[4]}}</td>
+                        
+                        <td>
+                        <center>
+                    
+                        <i class="fas fa-plus-square" style="font-size: 26px; color: #8e44ad;"></i>
+                       
+                        </center>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </center>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+<p style="text-align: center;">
+    <p style="float: left; padding-left: 50px;">---IMS---</p>
+	<p style="float: right; padding-right: 50px;">
+	&copy 
+    <script>
+        document.write(new Date().getFullYear());
+	</script>
+	| All rights reserved
+</p>
+<br><br>
+</div>
+
+</body>
+
+</html>

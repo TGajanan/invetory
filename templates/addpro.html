@@ -1,0 +1,66 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="shortcut icon" href="#">
+
+</head>
+
+<body>
+
+<div class="top">
+    <p>INVENTORY MANAGEMENT SYSTEM</p>
+</div>
+
+<form method="POST" action="" class="login">
+    <h1 style="font-size: 35px;">Add a product</h1>
+    
+    <label>Product name</label><br>
+    <input type="text" name="name" required/>
+    <br><br>
+    <label>Quantity</label><br>
+    <input type="text" name="quantity" required/>
+    <br><br>
+    <label>Cost price</label><br>
+    <input type="text" name="cprice" required/>
+    <br><br>
+    <label>Profit</label><br>
+    <input type="text" name="profit" required/>
+    <br><br>
+    <label>Supplier</label><br>
+    <select name="supplier">
+        {% for s in sup %}
+        <option value="{{ s[0] }}">{{ s[0] }}</option>
+        {% endfor %}
+    </select>
+    <br><br><br>
+    
+    <center>
+    <button type="submit" value="Submit" class="loginbtn">Add</button>
+    </center>
+</form>
+
+<div class="footer">
+<p style="text-align: center;">
+    <p style="float: left; padding-left: 50px;">---IMS---</p>
+	<p style="float: right; padding-right: 50px;">
+	&copy 
+    <script>
+        document.write(new Date().getFullYear());
+	</script>
+	| All rights reserved
+</p>
+<br><br>
+</div>
+
+</body>
+
+</html>
+
